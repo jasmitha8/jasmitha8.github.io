@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jasmitha Pissay Narayana</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #FFFFF0; /* Ivory */
+    color: #333;
+    scroll-behavior: smooth;
+  }
+
+  /* === Navbar === */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #445A3C; 
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  nav ul {
+    list-style: none; 
+    display: flex; 
+    margin: 0; 
+    padding: 0;
+  }
+
+  nav ul li { margin: 0 20px; }
+  nav ul li a {
+    color: #fff; 
+    text-decoration: none; 
+    font-weight: bold;
+  }
+  nav ul li a:hover { text-decoration: underline; }
+
+  /* === Hero / Cover Photo === */
+  #hero {
+    background: url("cover.jpg") no-repeat center 75%;
+    background-size: cover;
+    height: 300px;         
+    position: relative;
+  }
+
+  #profile-pic {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    object-fit: cover;
+    object-position: center top;
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  main {
+    max-width: 900px;
+    margin: 10px auto 50px auto;
+    padding: 0 20px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+
+  h2 {
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    color: #123804;
+  }
+
+  /* === Card Common Styles === */
+  .card, .skill-box, .timeline-content, .projects-container .card {
+    background: #F8F8F0; /* white/ivory */
+    border: 2px solid #445A3C; /* green border */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .card h3, .skill-box h3, .projects-container .card h3 {
+    color: #445A3C;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* === Skills === */
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .skill-box {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px;
+  }
+
+  .skill-box ul {
+    padding-left: 20px;
+  }
+
+  /* === Timeline / Experience === */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin: 20px 0;
+    width: 70%;
+  }
+
+  .timeline-content h2 {
+    color: #445A3C;
+    margin-top: 0;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .timeline-content h3 {
+    margin: 5px 0;
+    color: #8B4513;
+  }
+
+  .timeline-content span {
+    font-size: 0.9em;
+    color: #555;
+  }
+
+  .timeline-content ul {
+    margin: 10px 0 0 15px;
+    padding: 0;
+  }
+
+  .timeline-content li { margin-bottom: 5px; }
+
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 3px;
+    height: 40px;
+    border-left: 2px dotted #445A3C;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 33px);
+    width: 12px;
+    height: 12px;
+    background-color: #445A3C;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .timeline-item:last-child::after,
+  .timeline-item:last-child::before {
+    display: none;
+  }
+
+  /* === Projects === */
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .projects-container .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+  }
+
+  /* === Footer === */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #445A3E;
+    color: #fff;
+  }
+
+  /* === Resume Preview === */
+  .resume-preview {
+    margin-top: 20px;
+    border: 2px solid #445A3C;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .resume-preview iframe { border: none; }
+
+  #contact a i {
+    margin-right: 5px;
+    color: #445A3C; /* greenish to match your theme */
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">My Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <img src="profile.jpg" alt="Profile Photo" id="profile-pic">
+  </section>
+
+  <main>
+    <!-- Bio -->
+    <section id="bio">
+      <h2>Hi! I'm Jasmitha 👋</h2>
+      <p> I am a Software Development Engineer with 2.5+ years of experience in backend systems, distributed computing, and applied machine learning. I bring expertise in Python, Java, Golang, Scala, and databases including MySQL, PostgreSQL, and MongoDB. </p> 
+      <p> I've previously worked as a Software Development Engineer in Amazon and Sandvine Incorporated. I've also worked as Graduate Teaching Assistant for Big Data at New York University and as a Research Intern in PES University. </p> 
+      <p> Currently, I am pursuing a Master’s in Computer Engineering at New York University, deepening my expertise in software development and machine learning, and gearing up to take on new challenges to build impactful systems at the intersection of AI and large-scale software engineering. </p> 
+      <p> I look forward to connecting with innovators, engineers, and researchers who share a passion for AI-driven personalization, distributed systems, and data-intensive applications! </p>    
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <div class="skill-box">
+          <h3>Languages</h3>
+          <ul>
+            <li>Python</li><li>Django</li><li>Java</li><li>Spring Boot</li>
+            <li>JavaScript</li><li>Node.js</li><li>React.js</li>
+            <li>Scala</li><li>C++</li><li>Go</li>
+          </ul>
+        </div>
+        <div class="skill-box">
+          <h3>Database / Data Analytics</h3>
+          <ul>
+            <li>PostgreSQL</li><li>MySQL</li><li>Oracle</li><li>MongoDB</li>
+            <li>Apache Spark</li><li>Hadoop</li>
+          </ul>
+        </div>
+        <div class="skill-box">
+          <h3>Machine Learning / Data Science</h3>
+          <ul>
+            <li>Pandas</li><li>Numpy</li><li>Scikit-learn</li><li>OpenCV</li>
+            <li>Tensorflow</li><li>Keras</li><li>Pytorch</li><li>Transformers</li><li>GPU</li>
+          </ul>
+        </div>
+        <div class="skill-box">
+          <h3>Cloud / Tools</h3>
+          <ul>
+            <li>AWS</li><li>Git</li><li>Docker</li><li>Linux/Unix</li>
+            <li>Ubuntu</li><li>Shell scripting</li>
+          </ul>
+        </div>
+        <div class="skill-box">
+          <h3>Coding principles</h3>
+          <ul>
+            <li>OOP</li><li>Design patterns</li><li>Multithreading</li><li>Distributed programming</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h2>Amazon</h2>
+            <h3>Software Development Engineer Intern</h3>
+            <span>May 2025 - Aug 2025</span>
+            <ul>
+              <li>Processed conversational AI interaction data (Alexa, Rufus, InterestAI) to extract customer interests and deliver personalized homepage deals, driving a 35% increase in engagement during A/B experiments</li> 
+              <li>Designed scalable batch inferencing pipelines using AWS Bedrock LLMs, reducing API latency from 10 mins/100 rows to 15 mins/23,000 rows</li> 
+              <li>Built scalable customer personalization datasets and containerized workflows via AWS SageMaker AI pipelines, reducing dataset generation time from 30 hours to 7 hours</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h2>New York University</h2>
+            <h3>Graduate Teaching Assistant - Big Data</h3>
+            <span>Jan 2025 - May 2025</span>
+            <ul>
+              <li>Developed assignments and course materials on database and big data frameworks, enhancing student engagement by 60%</li> 
+              <li>Generated synthetic data using LLMs, Faker, and Pandas to populate databases for testing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h2>Sandvine Incorporated</h2>
+            <h3>Software Development Engineer II</h3>
+            <span>Dec 2022 - Aug 2024</span>
+            <ul>
+              <li>Designed data ingestion SQL queries in RESTful APIs, improving query performance by 85%</li> 
+              <li>Implemented read-only caching with Redis between microservices, decreasing latency by 60%</li>
+              <li>Implemented information security algorithm for packet inspection, improving correlation accuracy by 35%</li>  
+              <li>Demonstrated effective communication skills serving as a Scrum Master using Agile and go-to-market strategies for compliance with standard practices for timely product features delivery throughout software development lifecycle (SDLC)</li>          
+            </ul>
+            <br>
+            <h3>Software Development Engineer</h3>
+            <span>Jun 2022 - Nov 2024</span>
+            <ul>
+              <li>Developed and integrated regression and unit tests into CI/CD pipelines, reducing debugging time by 60%</li> 
+              <li>Architected system integration of multiple SaaS microservices, decreasing downtime by 75%</li>
+              <li>Implemented multithreaded parallel computing of Sandvine product deployments via principles of distributed computing environments to bring down total deployment time to an average of 4 hours according to customer needs</li>
+            </ul>
+            <br>
+            <h3>R&D Trainee</h3>
+            <span>Jan 2022 - May 2024</span>
+            <ul>
+              <li>Developed microservice to combine GeoIP and network traffic data (~700M records), achieving geolocation tagging within 100 meters</li>
+              <li>Developed algorithms for analyzing live network traffic to identify and classify the user actions as messaging transfer, Voice over Internet Protocol (VoIP) calls or social media uploads, increasing the online illegal activities detection by 55%</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-container">
+        <div class="card">
+          <h3>Design and Evaluation of a Real-Time Stock Inventory Management System</h3>
+          <ul>
+            <li>Built Windows application for large-scale retail inventory management and security system for real-time inventory tracking and forecasting, real-time video streaming capabilities, and real-time perception system via mobile notifications.</li> 
+            <li>Implemented Single Shot Detector (SSD), You Only Look Once (YOLO), Faster Region-based Convolutional Neural Network (Faster-RCNN) models based transfer learning for video/image processing on the COCO dataset</li> 
+            <li><a href="https://ieeexplore.ieee.org/document/10346665" target="_blank">Link</a></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Synthetic Audio Generation for Instrumental Sound</h3>
+          <ul>
+            <li>Developed a novel music generation algorithm using audio signal processing techniques like Fourier, and Hilbert transforms, and frequency scaling to enable the generation of all the musical notes of a given instrument with a single musical note as input.</li> 
+            <li>The algorithm is capable of simulating complete musical compositions by taking one instrumental musical note and the corresponding note sheet as inputs</li> 
+            <li><a href="https://ieeexplore.ieee.org/document/10276309" target="_blank">Link</a></li>
+          </ul>
+        </div>
+        
+        <div class="card">
+          <h3>Target Profiling: Identity Matrix</h3>
+          <ul>
+            <li>Designed an innovative correlation analytics model and web services to discover all the digital identities of a target given a single digital identity using regulatory data, to enable law enforcement agencies to track a target with 95% precision.</li> 
+            <li>Leveraged large sets of real-time data transformation techniques to optimize data lookup and retrieval by 86%.</li> 
+            <li>Demonstrated documentation and communication skills presenting the prototypes to a C-level executives panel at an internal hackathon, winning among 50+ competing teams under the “Best New Product” category.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>NYC MTA Analysis using Random Forest Regression</h3>
+          <ul>
+            <li>Analysis of historical data of MTA subway trains in the city including commuter trends to identify peak travel hours, frequency of trains during peak hours, high traffic train stations, and service bottlenecks using Apache Spark.</li> 
+            <li>Processed and analyzed real-time data from the MTA's live feeds and APIs using Apache Kafka</li> 
+            <li>Improved commuter experience through crowd management and forecasting by 60%, enhancing subway efficiency and reducing wait times through better scheduling and proactive maintenance</li> 
+            <li><a href="https://github.com/jasmitha8/NYC-MTA-Subway-Crowd-and-Delay-Analysis" target="_blank">Link</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume">
+      <h2>Resume</h2>
+      <div class="resume-preview">
+        <iframe src="resume.pdf" width="100%" height="600px"></iframe>
+      </div>
+      <p><a href="resume.pdf" target="_blank">View My Resume (PDF)</a> | <a href="resume.pdf" download>Download</a></p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+    <h2>My Contact</h2>
+    <h3>Jasmitha Pissay Narayana</h3>
+    <h4>New York, NY</h4>
+    <p>
+      <a href="mailto:jp7431@nyu.com"><i class="fas fa-envelope"></i> jp7431@nyu.com</a> | 
+      <a href="https://github.com/jasmitha8" target="_blank"><i class="fab fa-github"></i> github.com/jasmitha8</a> | 
+      <a href="https://linkedin.com/in/jasmithapn" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/jasmithapn</a>
+    </p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Jasmitha Pissay Narayana | Built with GitHub Pages</p>
+  </footer>
+
+</body>
+</html>
